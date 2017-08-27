@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link href="./css/bootstrap.css" rel="stylesheet"/>
+</head>
+<style>
+    #a, #b {
+        background-color: #e2e6ea;
+        margin-bottom: 5px;
+        height: 50px;
+    }
+
+    * {
+        word-wrap: break-word;
+        word-break: normal;
+    }
+</style>
+<body>
+<div class="container">
+
+    <nav class="nav">
+        <a class="nav-link active" href="#">Active</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link disabled" href="#">Disabled</a>
+    </nav>
+    <div class="row">
+        <div class="col-md-6" id="a">
+
+            touch me
+
+        </div>
+        <div class="col-md-6" id="b">
+            <p>
+                touch me
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <p id="des">
+
+        </p>
+    </div>
+</div>
+<script src="./js/zepto.js"></script>
+<script src="./js/hammer.min.js"></script>
+<script>
+    var touchEle = document.getElementById('a');
+    var touchHandle = new Hammer(touchEle);
+    var win_w=$(window).width();
+    touchHandle.on('panstart', function (ev) {
+        begin_x = ev.center.x;
+    })
+    touchHandle.on('panmove', function (ev) {
+        var ele = ev.target;
+        var deltax = ev.deltaX;
+        $(ele).css({
+            'background': '#e7e7e7',
+            'margin-left': ev.deltaX + 'px'
+        })
+    });
+    touchHandle.on('panend', function (ev) {
+
+        console.log(ev);
+        var ele = ev.target;
+        var deltax = ev.deltaX;
+        if (deltax > win_w/2) {
+            $(ele).css({
+                'background': '#e7e7e7',
+                'margin-left': win_w+ 'px'
+            })
+            $(ele).remove();
+        }else{
+            $(ele).css({
+                'background': '#e7e7e7',
+                'margin-left': 0+ 'px'
+            })
+        }
+
+    })
+</script>
+</body>
+</html>
