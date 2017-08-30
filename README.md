@@ -1,1 +1,1 @@
-# hammer.js demo and touch api demo
+# hammer.js an swiper.js demo and touch api demo
