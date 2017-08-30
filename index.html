@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Title</title>
     <link href="./css/bootstrap.css" rel="stylesheet"/>
 </head>
@@ -29,9 +32,7 @@
     </nav>
     <div class="row">
         <div class="col-md-6" id="a">
-
             touch me
-
         </div>
         <div class="col-md-6" id="b">
             <p>
@@ -51,9 +52,6 @@
     var touchEle = document.getElementById('a');
     var touchHandle = new Hammer(touchEle);
     var win_w=$(window).width();
-    touchHandle.on('panstart', function (ev) {
-        begin_x = ev.center.x;
-    })
     touchHandle.on('panmove', function (ev) {
         var ele = ev.target;
         var deltax = ev.deltaX;
@@ -63,7 +61,6 @@
         })
     });
     touchHandle.on('panend', function (ev) {
-
         console.log(ev);
         var ele = ev.target;
         var deltax = ev.deltaX;
@@ -71,7 +68,7 @@
             $(ele).css({
                 'background': '#e7e7e7',
                 'margin-left': win_w+ 'px'
-            })
+            });
             $(ele).remove();
         }else{
             $(ele).css({
@@ -79,7 +76,6 @@
                 'margin-left': 0+ 'px'
             })
         }
-
     })
 </script>
 </body>

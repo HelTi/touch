@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>swiper</title>
+    <link href="swiper/css/swiper.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper-container {
+        width: 100%;
+        padding-top: 50px;
+        /*padding-bottom: 50px;*/
+    }
+
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 80%;
+    }
+    .box{
+        /*height: 300px;*/
+        display: flex;
+        flex-direction: column;
+    }
+    .box .box-body img{
+        width: 100%;
+    }
+</style>
+<body>
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="box">
+                <div class="box-title">
+                    <h3>title</h3>
+                </div>
+                <div class="box-body">
+                    <img src="img/nature1.jpg">
+                </div>
+                <div class="box-bottom">
+                    <p>footer</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="box">
+                <div class="box-title">
+                    <h3>title</h3>
+                </div>
+                <div class="box-body">
+                    <img src="img/nature2.jpg">
+                </div>
+                <div class="box-bottom">
+                    <p>footer</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="box">
+                <div class="box-title">
+                    <h3>title</h3>
+                </div>
+                <div class="box-body">
+                    <img src="img/nature3.jpg">
+                </div>
+                <div class="box-bottom">
+                    <p>footer</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="box">
+                <div class="box-title">
+                    <h3>title</h3>
+                </div>
+                <div class="box-body">
+                    <img src="img/nature4.jpg">
+                </div>
+                <div class="box-bottom">
+                    <p>footer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<script src="swiper/js/swiper.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+//        pagination: '.swiper-pagination',
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflow: {
+            rotate: 30,
+            stretch: 10,
+            depth: 60,
+            modifier: 2,
+            slideShadows: false
+        },
+        loop: false
+    });
+</script>
+</body>
+</html>
