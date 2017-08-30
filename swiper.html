@@ -15,7 +15,6 @@
         margin: 0;
         padding: 0;
     }
-
     .swiper-container {
         width: 100%;
         padding-top: 50px;
@@ -34,6 +33,21 @@
     }
     .box .box-body img{
         width: 100%;
+    }
+    /*自定义分页样式，覆盖原来的样式*/
+    .swiper-pagination-bullet {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color: #000;
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+    }
+    .swiper-pagination-bullet-active {
+        color: #fff;
+        background: #007aff;
     }
 </style>
 <body>
@@ -99,11 +113,12 @@
 <script src="swiper/js/swiper.js"></script>
 <script>
     var swiper = new Swiper('.swiper-container', {
-//        pagination: '.swiper-pagination',
+        pagination: '.swiper-pagination',
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
+        paginationClickable: true,
         coverflow: {
             rotate: 30,
             stretch: 10,
@@ -111,7 +126,20 @@
             modifier: 2,
             slideShadows: false
         },
-        loop: false
+        loop: true,
+        onInit:function (swiper) {
+            console.log('swiper init')
+        },
+        onTouchStart:function (swiper) {
+//            console.log(swiper)
+        },
+        paginationBulletRender: function (swiper, index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+        onSetTransition:function (swiper,speed) {
+//            console.log(swiper)
+//            console.log(speed)
+        }
     });
 </script>
 </body>
