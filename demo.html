@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>mobile</title>
+</head>
+<body>
+<div>
+    <h2>判断屏幕是否旋转</h2>
+</div>
+</body>
+<script>
+    function orientationChange() {
+        switch (window.orientation){
+            case 0:
+                alert("肖像模式 0,screen-width: " + screen.width + "; screen-height:" + screen.height);
+                break;
+            case -90:
+                alert("左旋 -90,screen-width: " + screen.width + "; screen-height:" + screen.height);
+                break;
+            case 90:
+                alert("右旋 90,screen-width: " + screen.width + "; screen-height:" + screen.height);
+                break;
+            case 180:
+                alert("风景模式 180,screen-width: " + screen.width + "; screen-height:" + screen.height);
+                break;
+        }
+    }
+    addEventListener('load',function () {
+        orientationChange();
+        window.onorientationchange = orientationChange;
+    })
+</script>
+</html>
